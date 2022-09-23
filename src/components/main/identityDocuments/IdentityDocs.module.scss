@@ -1,0 +1,49 @@
+.identityDocs {
+  padding: 20px;
+
+  .title {
+    font-size: 24px;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    @media(max-width: 530px) {
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 10px;
+    }
+
+    .issuedBy {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin: 35px 0 20px;
+      height: 80px;
+      width: 100%;
+
+      label {
+        color: gray;
+      }
+
+      textarea {
+        font-size: 20px;
+        outline: 0;
+        border-width: 0 0 2px;
+        border-color: #d9d9d9;
+        height: 40px;
+      }
+    }
+
+    .uniqueNumber {
+      position: relative;
+
+      span {
+        position: absolute;
+        top: 110px;
+        color: #808080;
+      }
+    }
+  }
+}

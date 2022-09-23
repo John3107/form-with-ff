@@ -2,6 +2,7 @@ import React from 'react';
 import Profile from "./profile/Profile";
 import {Form} from "react-final-form";
 import style from "./Main.module.scss";
+import IdentityDocs from "./identityDocuments/IdentityDocs";
 
 const Main = () => {
     //  ТИПИЗИРОВАТЬ
@@ -20,6 +21,8 @@ const Main = () => {
             render={({handleSubmit}) => (
                 <form onSubmit={handleSubmit}>
                     <Profile/>
+                    <IdentityDocs />
+                    <button type="submit" className={style.buttonSubmit}>Створити</button>
                 </form>
             )}
         />
