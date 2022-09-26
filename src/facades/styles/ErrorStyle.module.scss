@@ -1,0 +1,15 @@
+.errorIcon, .error {
+  font-size: 16px;
+  position: absolute;
+  color: red !important;
+}
+
+.errorIcon {
+  bottom: 5px;
+  right: 5px;
+}
+
+.error {
+  bottom: -25px;
+  right: 0;
+}

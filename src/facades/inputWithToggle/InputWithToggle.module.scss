@@ -3,29 +3,32 @@
   flex-direction: column;
   position: relative;
   margin: 20px 0;
-  width: 100%;
 
   label {
     color: gray;
   }
 
-  input {
-    font-size: 20px;
-    outline: 0;
-    border-width: 0 0 2px;
-    border-color: #d9d9d9;
-    height: 60px;
-  }
+  .fieldBody {
+    position: relative;
 
-  .switcher {
-    position: absolute;
-    top: 40px;
-    right: 0;
+    input {
+      width: 100%;
+      font-size: 20px;
+      outline: 0;
+      border-width: 0 0 2px;
+      border-color: #d9d9d9;
+      height: 60px;
+    }
   }
+    .switcher {
+      position: absolute;
+      top: 40px;
+      right: 0;
+    }
 
-  span {
-    top: 85px;
-    position: absolute;
-    color: gray;
-  }
+    span {
+      top: 85px;
+      position: absolute;
+      color: gray;
+    }
 }
