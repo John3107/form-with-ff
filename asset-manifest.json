@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/form-with-ff/static/css/main.0ea81ed0.css",
+    "main.js": "/form-with-ff/static/js/main.b10d5873.js",
+    "static/js/787.e74a46cf.chunk.js": "/form-with-ff/static/js/787.e74a46cf.chunk.js",
+    "static/media/verdana.ttf": "/form-with-ff/static/media/verdana.beb045335cb8a503fb8c.ttf",
+    "static/media/OpenSans-Regular.ttf": "/form-with-ff/static/media/OpenSans-Regular.77c09223204154ae8d43.ttf",
+    "static/media/registration-success.svg": "/form-with-ff/static/media/registration-success.be7c5034058e2dc3ad88051af1af3f9f.svg",
+    "index.html": "/form-with-ff/index.html",
+    "main.0ea81ed0.css.map": "/form-with-ff/static/css/main.0ea81ed0.css.map",
+    "main.b10d5873.js.map": "/form-with-ff/static/js/main.b10d5873.js.map",
+    "787.e74a46cf.chunk.js.map": "/form-with-ff/static/js/787.e74a46cf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ea81ed0.css",
+    "static/js/main.b10d5873.js"
+  ]
+}
