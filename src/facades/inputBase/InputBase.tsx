@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './InputBase.module.scss'
+import style from './InputBase.module.scss';
 import {Field} from 'react-final-form';
 import {InfoCircleOutlined} from "@ant-design/icons";
 import errStyle from '../styles/ErrorStyle.module.scss';

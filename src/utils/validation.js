@@ -14,26 +14,12 @@ export const validation = event => {
         birthday,
         issuedDate,
         email,
-        phone
+        phone,
+        sex,
+        doc
     } = event
 
-    const errors = {
-        IPN: '',
-        city: '',
-        country: '',
-        fatherName: '',
-        firstName: '',
-        issuedBy: '',
-        lastName: '',
-        secretWord: '',
-        passportNum: '',
-        uniqueNumber: '',
-        validUntil: '',
-        birthday: '',
-        issuedDate: '',
-        email: '',
-        phone: ''
-    }
+    const errors = {}
 
     const dateValidator = value => {
         const patternTest = /([0]?[1-9]|[1|2][0-9]|[3][0|1])[.]([0]?[1-9]|[1][0-2])[.]([0-9]{4})$/;
@@ -61,8 +47,16 @@ export const validation = event => {
 
     if (!country) errors.country = 'Поле не може бути пустим'
     if (!city) errors.city = 'Поле не може бути пустим'
-    if (!secretWord) errors.secretWord = 'Поле не може бути пустим'
+
+    if (!secretWord) {
+        errors.secretWord = 'Поле не може бути пустим'
+    } else {
+        if (secretWord.length < 6) errors.secretWord = 'Поле має складати не менше 6 символів'
+    }
+
     if (!issuedBy) errors.issuedBy = 'Поле не може бути пустим'
+    if (sex === '--Вибрати--') errors.sex = 'Вкажіть стать'
+    if (doc === '--Вибрати--') errors.doc = 'Вкажіть тип документу, який посвідчує особу'
 
     if (email) {
         const patternEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
@@ -78,16 +72,24 @@ export const validation = event => {
         }
     }
 
-    if (IPN.value?.length !== 10) errors.IPN = 'Поле має складати 10 цифр'
-    if (!IPN.isDisable && !IPN.value) errors.IPN = 'Поле не може бути пустим'
-    else {
-        const findNotNumber = [...IPN.value].find(el => isNaN(+el))
-        if (findNotNumber) errors.IPN = 'ІПН має складатись тільки з цифр'
+    if (!IPN.isDisable) {
+        if (!IPN.value) {
+            errors.IPN = 'Поле не може бути пустим'
+        } else {
+            if (IPN.value.length !== 10) {
+                errors.IPN = 'Поле має складати 10 цифр'
+            } else {
+                const findNotNumber = [...IPN.value].find(el => isNaN(+el))
+                if (findNotNumber) errors.IPN = 'Поле має складатись тільки з цифр'
+            }
+        }
     }
 
     if (!fatherName.isDisable && !fatherName.value) errors.fatherName = 'Поле не може бути пустим'
-    if (!passportNum) errors.passportNum = 'Поле не може бути пустим'
-    else {
+
+    if (!passportNum) {
+        errors.passportNum = 'Поле не може бути пустим'
+    } else {
         let count = 0;
         [...passportNum].forEach(el => !isNaN(+el) && count++)
         if (count !== 9) errors.passportNum = 'Номер введено некоректно, поле повинно містити 9 цифр'
@@ -103,6 +105,8 @@ export const validation = event => {
             if (event.uniqueNumber.length === 13) {
                 if (![...uniqueNumber].includes('-')) {
                     errors.uniqueNumber = 'Поле не відповідає формату РРРРММДД-ХХХХХ'
+                } else {
+                    errors.uniqueNumber = 'Номер введено некоректно, поле повинно містити 13 цифр'
                 }
             } else {
                 errors.uniqueNumber = 'Номер введено некоректно, поле повинно містити 13 цифр'

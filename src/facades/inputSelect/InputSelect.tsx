@@ -3,6 +3,7 @@ import style from './InputSelect.module.scss';
 import {Field} from 'react-final-form';
 import {CheckOutlined} from "@ant-design/icons";
 import {OptionType} from "../../types/types";
+import errStyle from "../styles/ErrorStyle.module.scss";
 
 type PropsType = {
     label: string
@@ -22,12 +23,23 @@ const InputSelect = ({label, name, options}: PropsType) => {
 
     return <div className={style.inputSelect}>
         <label>{label}</label>
-        <Field name={name}
-               component="input"
-               initialValue={currentValue}/>
+        <Field
+            name={name}
+            initialValue={currentValue}
+            render={({input, meta}) => (
+                <div>
+                    <input {...input}
+                           style={{
+                               width: '100%',
+                               borderColor: meta.touched && meta.error && 'red'
+                           }}
+                    />
+                    {meta.touched && meta.error && <div className={errStyle.error}>{meta.error}</div>}
+                </div>
+            )}
+        />
         <div className={style.arrowDown}></div>
-        <div className={style.listCaller} onClick={() => setIsShowContext(!isShowContext)}>
-        </div>
+        <div className={style.listCaller} onClick={() => setIsShowContext(!isShowContext)}></div>
         {isShowContext && <div className={style.contextMenu}>
             {
                 options.map((el, key) =>
@@ -39,10 +51,7 @@ const InputSelect = ({label, name, options}: PropsType) => {
                     </div>)
             }
         </div>}
-        {isShowContext &&
-            <div className={style.listCloser}
-                 onClick={() => setIsShowContext(false)}></div>
-        }
+        {isShowContext && <div className={style.listCloser} onClick={() => setIsShowContext(false)}></div>}
     </div>
 }
 export default InputSelect;

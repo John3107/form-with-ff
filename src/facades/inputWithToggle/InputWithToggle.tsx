@@ -9,14 +9,15 @@ type PropsType = {
     name: string
     value: boolean
     setValue: (value: boolean) => void
+    description: string
 }
 
-const InputWithToggle = ({label, name, value, setValue}: PropsType) =>
+const InputWithToggle = ({label, name, value, setValue, description}: PropsType) =>
     <div className={style.inputWithToggle}>
         <label style={{color: value ? '#313131' : 'grey'}}>{label}</label>
         <Field
             name={name}
-            render={({ input, meta }) => (
+            render={({input, meta}) => (
                 <div className={style.fieldBody}>
                     <input {...input}
                            disabled={value}
@@ -28,7 +29,7 @@ const InputWithToggle = ({label, name, value, setValue}: PropsType) =>
             )}
         />
         <Switch defaultChecked className={style.switcher} onClick={() => setValue(!value)}/>
-        {value && <span>Немає по батькові згідно документів</span>}
+        {value && <span>{description}</span>}
     </div>
 
 

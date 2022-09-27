@@ -1,0 +1,21 @@
+.app {
+  .registrationSuccess {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    .text {
+      font-size: 32px;
+      margin-top: 50px;
+      color: #25AE88;
+      text-align: center;
+    }
+  }
+}

@@ -27,7 +27,7 @@ const IdentityDocs = () => {
                     render={({input, meta}) => (
                         <div className={style.fieldBodyTextarea}>
                             <textarea {...input}
-                                   style={{borderColor: meta.touched && meta.error && 'red'}}/>
+                                      style={{borderColor: meta.touched && meta.error && 'red'}}/>
                             {meta.touched && meta.error &&
                                 <div style={{bottom: '-18px'}} className={errStyle.error}>{meta.error}</div>}
                         </div>
@@ -51,6 +51,7 @@ const IdentityDocs = () => {
                     )}/>
                 <span>Вкажіть унікальний номер запису в Демографічному реєстрі (Запис №)</span>
             </div>
+
         </div>
     </div>
 }
